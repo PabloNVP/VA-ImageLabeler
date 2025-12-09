@@ -1,1 +1,1 @@
-Repositorio de etiquetador de imagenes con OpenCV.
+Repositorio de etiquetador de imágenes con OpenCV.
