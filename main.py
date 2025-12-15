@@ -184,13 +184,6 @@ class ImageLabeler:
         """Muestra/oculta el panel de ayuda."""
         self.show_help = not self.show_help
     
-    def _select_class_by_number(self, key):
-        """Selecciona una clase por número."""
-        class_idx = key - ord('0')
-        if class_idx < len(self.classes):
-            self.current_class_idx = class_idx
-            print(f"Clase seleccionada: {self.classes[self.current_class_idx]}")
-    
     def _detect_classes(self):
         """Detecta las clases desde las subcarpetas."""
         classes = []
@@ -445,7 +438,6 @@ class ImageLabeler:
             ("u", "Deshacer ultimo box"),
             ("d", "Eliminar ultimo box"),
             ("c", "Cambiar clase actual"),
-            ("0-9", "Seleccionar clase rapido"),
             ("q / ESC", "Salir y guardar"),
             ("TAB", "Ocultar este panel")
         ]
@@ -533,11 +525,6 @@ class ImageLabeler:
         # Buscar acción en el diccionario
         if key in self._key_actions:
             self._key_actions[key]()
-            return True
-        
-        # Selección rápida de clase (0-9)
-        if ord('0') <= key <= ord('9'):
-            self._select_class_by_number(key)
         
         return True
     
